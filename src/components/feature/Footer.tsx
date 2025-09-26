@@ -7,7 +7,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="text-2xl font-bold text-blue-400 mb-4" style={{ fontFamily: '"Rubik", sans-serif' }}>
-              &lt;CodeCrafting/&gt;
+              &lt;TheCodingForge/&gt;
             </div>
             <p className="text-gray-400 mb-4 font-mono">
               /* Elite software development team crafting innovative digital solutions */
@@ -43,7 +43,7 @@ export default function Footer() {
           <div>
             <h3 className="text-blue-400 font-semibold mb-4 font-mono">/* Contact */</h3>
             <ul className="space-y-2 font-mono">
-              <li className="text-gray-400">hello@codecrafting.dev</li>
+              <li className="text-gray-400">hello@TheCodingForge.dev</li>
               <li className="text-gray-400">+1 (555) 123-CODE</li>
               <li className="text-gray-400">San Francisco, CA</li>
             </ul>
@@ -53,7 +53,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 font-mono text-sm">
-            © 2024 CodeCrafting. All rights reserved. // Built with ❤️ and lots of ☕
+            © 2024 TheCodingForge. All rights reserved. // Built with ❤️ and lots of ☕
           </p>
         </div>
       </div>

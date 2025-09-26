@@ -2,7 +2,7 @@
 export default function AboutSection() {
   const stats = [
     { number: '50+', label: 'Projects Deployed', icon: 'ri-rocket-line' },
-    { number: '5+', label: 'Years Experience', icon: 'ri-time-line' },
+    { number: '6+', label: 'Years Experience', icon: 'ri-time-line' },
     { number: '100%', label: 'Client Satisfaction', icon: 'ri-heart-line' },
     { number: '24/7', label: 'Support Available', icon: 'ri-customer-service-line' }
   ];
@@ -66,9 +66,6 @@ export default function AboutSection() {
                 </div>
                 <div className="ml-4 space-y-1">
                   <div className="text-gray-400">
-                    <span className="text-blue-400">founded</span><span className="text-pink-400">:</span> <span className="text-orange-400">'2019'</span><span className="text-gray-400">,</span>
-                  </div>
-                  <div className="text-gray-400">
                     <span className="text-blue-400">mission</span><span className="text-pink-400">:</span> <span className="text-orange-400">'Transform ideas into reality'</span><span className="text-gray-400">,</span>
                   </div>
                   <div className="text-gray-400">
@@ -94,7 +91,7 @@ export default function AboutSection() {
             <div className="space-y-4 text-gray-300 font-mono leading-relaxed">
               <p>
                 We're a passionate team of software engineers who believe in the power of clean code 
-                and innovative solutions. Since 2019, we've been helping businesses transform their 
+                and innovative solutions. We've been helping businesses transform their 
                 ideas into robust digital products.
               </p>
               <p>

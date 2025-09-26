@@ -39,8 +39,12 @@ export default function TeamSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-mono">
-            /* <span className="text-green-400">Our Team</span> */
+            /* <span className="text-blue-400">Our Team</span> */
           </h2>
+          <span className="text-white">
+
+          
+          </span>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto font-mono">
             // Meet the developers behind the magic
           </p>
@@ -183,10 +187,10 @@ export default function TeamSection() {
             <p className="text-gray-400 mb-6 font-mono">
               // Let's build amazing software solutions for your business
             </p>
-            <button className="bg-green-500 text-black px-8 py-3 rounded-lg hover:bg-green-400 transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold">
+            <a href="#contact" className="bg-blue-500 text-black px-8 py-3 rounded-lg hover:bg-blue-400 transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold">
               <i className="ri-message-3-line mr-2"></i>
               Contact Us
-            </button>
+            </a >
           </div>
         </div>
       </div>

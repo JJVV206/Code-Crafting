@@ -106,10 +106,10 @@ export default function ServicesSection() {
             <p className="text-gray-400 mb-4 sm:mb-6 font-mono text-sm sm:text-base">
               // Let's discuss your requirements and build something amazing together
             </p>
-            <button className="w-full sm:w-auto bg-blue-500 text-black px-6 sm:px-8 py-3 rounded-lg hover:bg-blue-400 transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold">
+            <a href="#contact" className="w-full sm:w-auto bg-blue-500 text-black px-6 sm:px-8 py-3 rounded-lg hover:bg-blue-400 transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold">
               <i className="ri-message-3-line mr-2"></i>
               Get Quote
-            </button>
+            </a>
           </div>
         </div>
       </div>

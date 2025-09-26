@@ -23,11 +23,11 @@ export default function HeroSection() {
                 <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-blue-500"></div>
               </div>
-              <span className="ml-3 sm:ml-4 text-gray-400 text-xs sm:text-sm">~/codecrafting</span>
+              <span className="ml-3 sm:ml-4 text-gray-400 text-xs sm:text-sm">~/TheCodingForge</span>
             </div>
             <div className="text-blue-400 text-xs sm:text-sm">
               <span className="text-gray-400">$</span> whoami<br/>
-              <span className="text-white">CodeCrafting Team</span><br/><br/>
+              <span className="text-white">TheCodingForge Team</span><br/><br/>
               <span className="text-gray-400">$</span> cat mission.txt<br/>
               <span className="text-white">Elite Software Development Team</span>
             </div>
@@ -35,7 +35,7 @@ export default function HeroSection() {
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white px-2" style={{ fontFamily: '"Rubik", sans-serif' }}>
-            &lt;<span className="text-blue-400">Code</span>Crafting/&gt;
+            &lt;<span className="text-blue-400">The Coding</span>Forge/&gt;
           </h1>
 
           {/* Subheading */}
@@ -51,10 +51,10 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6 sm:pt-8 px-4">
-            <button className="w-full sm:w-auto bg-blue-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-blue-400 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer font-mono font-semibold text-base sm:text-lg">
+            <a href="#contact" className="w-full sm:w-auto bg-blue-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-blue-400 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer font-mono font-semibold text-base sm:text-lg">
               <i className="ri-terminal-box-line mr-2"></i>
               Start Project
-            </button>
+            </a>
           </div>
 
           {/* Tech stack badges */}

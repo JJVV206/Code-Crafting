@@ -11,7 +11,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <div className="text-2xl font-bold text-blue-400" style={{ fontFamily: '"Rubik", sans-serif' }}>
-              &lt;CodeCrafting/&gt;
+              &lt;TheCodingForge/&gt;
             </div>
           </div>
 
@@ -26,9 +26,10 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-400 transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold">
-              Start Your Projects
-            </button>
+            <a href="#contact" className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-400 transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold">
+              <i className="ri-terminal-box-line mr-2"></i>
+              Start Project
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -51,9 +52,12 @@ export default function Header() {
               <a href="#about" className="block px-3 py-2 text-gray-300 hover:text-blue-400 cursor-pointer font-mono">About</a>
               <a href="#team" className="block px-3 py-2 text-gray-300 hover:text-blue-400 cursor-pointer font-mono">Team</a>
               <a href="#contact" className="block px-3 py-2 text-gray-300 hover:text-blue-400 cursor-pointer font-mono">Contact</a>
-              <button className="w-full mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-400 transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold">
-                Start Your Projects
-              </button>
+              <div className="flex items-center justify-center" >
+              <a href="#contact" className="w-full mt-4 bg-blue-500 text-white px-10 py-2 rounded-lg hover:bg-blue-400 transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold text-center">
+                <i className="ri-terminal-box-line mr-2"></i>
+                Start Project
+              </a>
+              </div>
             </div>
           </div>
         )}

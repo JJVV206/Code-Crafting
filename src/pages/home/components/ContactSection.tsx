@@ -78,7 +78,7 @@ export default function ContactSection() {
                 <div className="text-yellow-400">{'{'}</div>
                 <div className="ml-2 sm:ml-4 space-y-1 sm:space-y-2">
                   <div>
-                    <span className="text-blue-400">"email"</span><span className="text-pink-400">:</span> <span className="text-orange-400">"hello@codecrafting.dev"</span><span className="text-gray-400">,</span>
+                    <span className="text-blue-400">"email"</span><span className="text-pink-400">:</span> <span className="text-orange-400">"hello@TheCodingForge.dev"</span><span className="text-gray-400">,</span>
                   </div>
                   <div>
                     <span className="text-blue-400">"phone"</span><span className="text-pink-400">:</span> <span className="text-orange-400">"+1 (555) 123-CODE"</span><span className="text-gray-400">,</span>
@@ -106,7 +106,7 @@ export default function ContactSection() {
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-white font-mono font-semibold text-sm sm:text-base">Email Us</h4>
-                  <p className="text-gray-400 font-mono text-xs sm:text-sm break-all">hello@codecrafting.dev</p>
+                  <p className="text-gray-400 font-mono text-xs sm:text-sm break-all">hello@TheCodingForge.dev</p>
                 </div>
               </div>
 
@@ -289,25 +289,6 @@ export default function ContactSection() {
                 )}
               </form>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-12 sm:mt-16 text-center">
-          <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 sm:p-8 max-w-4xl mx-auto">
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 font-mono">
-              Prefer a quick chat?
-            </h3>
-            <p className="text-gray-400 mb-4 sm:mb-6 font-mono text-sm sm:text-base">
-              // Schedule a 15-minute discovery call to discuss your project
-            </p>
-            <button 
-              onClick={() => document.querySelector('#vapi-widget-floating-button')?.click()}
-              className="bg-gray-800 border border-blue-500 text-blue-400 px-6 sm:px-8 py-3 rounded-lg hover:bg-blue-500 hover:text-white transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold text-sm sm:text-base"
-            >
-              <i className="ri-phone-line mr-2"></i>
-              Schedule Call
-            </button>
           </div>
         </div>
       </div>
