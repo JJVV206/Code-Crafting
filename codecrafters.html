@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCrafters - Elite Software Development Team</title>
+    <meta name="description" content="Professional software development team specializing in modern web applications, mobile solutions, and cloud architecture.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <script>
+        // Tailwind config
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'rubik': ['Rubik', 'sans-serif']
+                    }
+                }
+            }
+        }
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = 'ri-close-line text-xl';
+            } else {
+                menu.classList.add('hidden');
+                icon.className = 'ri-menu-line text-xl';
+            }
+        }
+        
+        // Smooth scrolling
+        function smoothScroll(target) {
+            document.querySelector(target).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Form submission
+        function submitForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin mr-2"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                alert('Message sent successfully! We\'ll get back to you soon.');
+                event.target.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-mono">
+    <!-- Header -->
+    <header class="bg-black border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-xl sm:text-2xl font-bold text-blue-400 font-rubik">
+                        &lt;CodeCrafters/&gt;
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6 lg:space-x-8 font-mono">
+                    <a href="#home" onclick="smoothScroll('#home')" class="text-gray-300 hover:text-blue-400 transition-colors cursor-pointer">Home</a>
+                    <a href="#services" onclick="smoothScroll('#services')" class="text-gray-300 hover:text-blue-400 transition-colors cursor-pointer">Services</a>
+                    <a href="#about" onclick="smoothScroll('#about')" class="text-gray-300 hover:text-blue-400 transition-colors cursor-pointer">About</a>
+                    <a href="#portfolio" onclick="smoothScroll('#portfolio')" class="text-gray-300 hover:text-blue-400 transition-colors cursor-pointer">Portfolio</a>
+                    <a href="#team" onclick="smoothScroll('#team')" class="text-gray-300 hover:text-blue-400 transition-colors cursor-pointer">Team</a>
+                    <a href="#contact" onclick="smoothScroll('#contact')" class="text-gray-300 hover:text-blue-400 transition-colors cursor-pointer">Contact</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex">
+                    <button onclick="smoothScroll('#contact')" class="bg-blue-500 text-white px-4 lg:px-6 py-2 rounded-lg hover:bg-blue-400 transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold">
+                        git clone project
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-blue-400 cursor-pointer">
+                        <i id="menu-icon" class="ri-menu-line text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black border-t border-gray-800">
+                    <a href="#home" onclick="smoothScroll('#home'); toggleMobileMenu()" class="block px-3 py-2 text-gray-300 hover:text-blue-400 cursor-pointer font-mono">Home</a>
+                    <a href="#services" onclick="smoothScroll('#services'); toggleMobileMenu()" class="block px-3 py-2 text-gray-300 hover:text-blue-400 cursor-pointer font-mono">Services</a>
+                    <a href="#about" onclick="smoothScroll('#about'); toggleMobileMenu()" class="block px-3 py-2 text-gray-300 hover:text-blue-400 cursor-pointer font-mono">About</a>
+                    <a href="#portfolio" onclick="smoothScroll('#portfolio'); toggleMobileMenu()" class="block px-3 py-2 text-gray-300 hover:text-blue-400 cursor-pointer font-mono">Portfolio</a>
+                    <a href="#team" onclick="smoothScroll('#team'); toggleMobileMenu()" class="block px-3 py-2 text-gray-300 hover:text-blue-400 cursor-pointer font-mono">Team</a>
+                    <a href="#contact" onclick="smoothScroll('#contact'); toggleMobileMenu()" class="block px-3 py-2 text-gray-300 hover:text-blue-400 cursor-pointer font-mono">Contact</a>
+                    <button onclick="smoothScroll('#contact'); toggleMobileMenu()" class="w-full mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-400 transition-colors whitespace-nowrap cursor-pointer font-mono font-semibold">
+                        git clone project
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center bg-black overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20software%20development%20workspace%20with%20multiple%20monitors%20displaying%20code%2C%20dark%20theme%20programming%20environment%2C%20minimalist%20black%20desk%20setup%2C%20LED%20strips%2C%20futuristic%20coding%20atmosphere%2C%20high-tech%20developer%20setup%20with%20clean%20lines%20and%20professional%20lighting%2C%20seamless%20background%20perfect%20for%20overlay%20text&width=1920&height=1080&seq=hero-bg-codecrafters&orientation=landscape'); background-size: cover; background-position: center;">
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black/70"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 py-12 sm:py-16">
+            <div class="space-y-6 sm:space-y-8">
+                <!-- Terminal-style intro -->
+                <div class="bg-gray-900/90 rounded-lg p-4 sm:p-6 border border-gray-700 max-w-2xl mx-auto font-mono text-left">
+                    <div class="flex items-center mb-3 sm:mb-4">
+                        <div class="flex space-x-2">
+                            <div class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+                            <div class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-blue-500"></div>
+                        </div>
+                        <span class="ml-3 sm:ml-4 text-gray-400 text-xs sm:text-sm">~/codecrafters</span>
+                    </div>
+                    <div class="text-blue-400 text-xs sm:text-sm">
+                        <span class="text-gray-400">$</span> whoami<br>
+                        <span class="text-white">CodeCrafters Team</span><br><br>
+                        <span class="text-gray-400">$</span> cat mission.txt<br>
+                        <span class="text-white">Elite Software Development Team</span>
+                    </div>
+                </div>
+
+                <!-- Main heading -->
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold text-white px-2 font-rubik">
+                    &lt;<span class="text-blue-400">Code</span>Crafters/&gt;
+                </h1>
+
+                <!-- Subheading -->
+                <p class="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto font-mono px-4">
+                    // We transform ideas into elegant code solutions
+                </p>
+
+                <!-- Description -->
+                <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto font-mono leading-relaxed px-4">
+                    Professional software development team specializing in modern web applications, 
+                    mobile solutions, and cloud architecture. Let's build something amazing together.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6 sm:pt-8 px-4">
+                    <button onclick="smoothScroll('#contact')" class="w-full sm:w-auto bg-blue-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-blue-400 transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer font-mono font-semibold text-base sm:text-lg">
+                        <i class="ri-terminal-box-line mr-2"></i>
+                        Start Project
+                    </button>
+                    <button onclick="smoothScroll('#portfolio')" class="w-full sm:w-auto border-2 border-blue-500 text-blue-400 px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300 whitespace-nowrap cursor-pointer font-mono font-semibold text-base sm:text-lg">
+                        <i class="ri-eye-line mr-2"></i>
+                        View Portfolio
+                    </button>
+                </div>
+
+                <!-- Tech stack badges -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 pt-6 sm:pt-8 px-4">
+                    <span class="px-3 sm:px-4 py-2 bg-gray-800/80 border border-gray-700 rounded-full text-blue-400 font-mono text-xs sm:text-sm hover:bg-gray-700/80 transition-colors">React</span>
+                    <span class="px-3 sm:px-4 py-2 bg-gray-800/80 border border-gray-700 rounded-full text-blue-400 font-mono text-xs sm:text-sm hover:bg-gray-700/80 transition-colors">Node.js</span>
+                    <span class="px-3 sm:px-4 py-2 bg-gray-800/80 border border-gray-700 rounded-full text-blue-400 font-mono text-xs sm:text-sm hover:bg-gray-700/80 transition-colors">Astro</span>
+                    <span class="px-3 sm:px-4 py-2 bg-gray-800/80 border border-gray-700 rounded-full text-blue-400 font-mono text-xs sm:text-sm hover:bg-gray-700/80 transition-colors">TypeScript</span>
+                    <span class="px-3 sm:px-4 py-2 bg-gray-800/80 border border-gray-700 rounded-full text-blue-400 font-mono text-xs sm:text-sm hover:bg-gray-700/80 transition-colors">JavaScript</span>
+                    <span class="px-3 sm:px-4 py-2 bg-gray-800/80 border border-gray-700 rounded-full text-blue-400 font-mono text-xs sm:text-sm hover:bg-gray-700/80 transition-colors">Tailwind CSS</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated code particles -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block">
+            <div class="absolute top-1/4 left-1/4 text-blue-500/20 font-mono animate-pulse">{ }</div>
+            <div class="absolute top-1/3 right-1/4 text-blue-500/20 font-mono animate-pulse" style="animation-delay: 0.5s;">const</div>
+            <div class="absolute bottom-1/4 left-1/3 text-blue-500/20 font-mono animate-pulse" style="animation-delay: 1s;">=&gt;</div>
+            <div class="absolute bottom-1/3 right-1/3 text-blue-500/20 font-mono animate-pulse" style="animation-delay: 1.5s;">function()</div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 sm:py-16 lg:py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="inline-block bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full font-mono text-sm mb-4">
+                    ./services
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-rubik">
+                    Our Services
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto font-mono">
+                    // Comprehensive development solutions for modern businesses
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Web Development -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 sm:p-8 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="ri-code-s-slash-line text-2xl sm:text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 font-rubik">Web Development</h3>
+                    <p class="text-gray-400 mb-4 sm:mb-6 font-mono text-sm sm:text-base">
+                        Modern, responsive web applications built with cutting-edge technologies.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">React</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Next.js</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">TypeScript</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <!-- Backend Development -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 sm:p-8 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="ri-server-line text-2xl sm:text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 font-rubik">Backend Development</h3>
+                    <p class="text-gray-400 mb-4 sm:mb-6 font-mono text-sm sm:text-base">
+                        Scalable server solutions and robust API architectures.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Node.js</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Astro</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">PostgreSQL</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- Mobile Development -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 sm:p-8 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="ri-smartphone-line text-2xl sm:text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 font-rubik">Mobile Development</h3>
+                    <p class="text-gray-400 mb-4 sm:mb-6 font-mono text-sm sm:text-base">
+                        Cross-platform mobile applications for iOS and Android.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">React Native</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Flutter</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Swift</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Kotlin</span>
+                    </div>
+                </div>
+
+                <!-- Cloud Solutions -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 sm:p-8 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="ri-cloud-line text-2xl sm:text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 font-rubik">Cloud Solutions</h3>
+                    <p class="text-gray-400 mb-4 sm:mb-6 font-mono text-sm sm:text-base">
+                        Scalable cloud infrastructure and deployment strategies.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">AWS</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Docker</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Kubernetes</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Azure</span>
+                    </div>
+                </div>
+
+                <!-- DevOps -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 sm:p-8 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="ri-git-branch-line text-2xl sm:text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 font-rubik">DevOps & CI/CD</h3>
+                    <p class="text-gray-400 mb-4 sm:mb-6 font-mono text-sm sm:text-base">
+                        Automated deployment pipelines and infrastructure management.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">GitHub Actions</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Jenkins</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Terraform</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Ansible</span>
+                    </div>
+                </div>
+
+                <!-- Security & Testing -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 sm:p-8 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="ri-shield-check-line text-2xl sm:text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 font-rubik">Security & Testing</h3>
+                    <p class="text-gray-400 mb-4 sm:mb-6 font-mono text-sm sm:text-base">
+                        Comprehensive security audits and automated testing solutions.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Jest</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Cypress</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">JavaScript</span>
+                        <span class="px-2 sm:px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Performance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 sm:py-16 lg:py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div>
+                    <div class="inline-block bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full font-mono text-sm mb-6">
+                        ./about-us
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-rubik">
+                        Crafting Digital Excellence
+                    </h2>
+                    <p class="text-lg text-gray-400 mb-6 font-mono leading-relaxed">
+                        We are a team of passionate developers, designers, and architects who believe in the power of clean code and innovative solutions.
+                    </p>
+                    <p class="text-gray-400 mb-8 font-mono leading-relaxed">
+                        With over 50+ successful projects delivered and counting, we specialize in transforming complex business requirements into elegant, scalable, and maintainable software solutions.
+                    </p>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-2xl sm:text-3xl font-bold text-blue-400 font-mono">50+</div>
+                            <div class="text-sm text-gray-400 font-mono">Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl sm:text-3xl font-bold text-blue-400 font-mono">5+</div>
+                            <div class="text-sm text-gray-400 font-mono">Years</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl sm:text-3xl font-bold text-blue-400 font-mono">100%</div>
+                            <div class="text-sm text-gray-400 font-mono">Satisfaction</div>
+                        </div>
+                    </div>
+
+                    <button onclick="smoothScroll('#contact')" class="bg-blue-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-blue-400 transition-all duration-300 whitespace-nowrap cursor-pointer font-mono font-semibold">
+                        <i class="ri-arrow-right-line mr-2"></i>
+                        Let's Talk
+                    </button>
+                </div>
+
+                <div class="relative">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=Professional%20software%20development%20team%20working%20together%20in%20modern%20office%20environment%2C%20multiple%20developers%20collaborating%20on%20code%2C%20modern%20workspace%20with%20computers%20and%20monitors%2C%20natural%20lighting%2C%20professional%20atmosphere%20with%20technology%20focus%20and%20teamwork%20spirit&width=600&height=400&seq=about-team-image&orientation=landscape"
+                        alt="CodeCrafters Team"
+                        class="rounded-lg border border-gray-700 w-full h-64 sm:h-80 lg:h-96 object-cover object-top"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-12 sm:py-16 lg:py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="inline-block bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full font-mono text-sm mb-4">
+                    ./portfolio
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-rubik">
+                    Recent Projects
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto font-mono">
+                    // Showcasing our latest work and innovative solutions
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=Modern%20e-commerce%20web%20application%20interface%20with%20clean%20design%2C%20shopping%20cart%20functionality%2C%20product%20listings%2C%20professional%20UI%2FUX%20design%2C%20modern%20web%20interface%20with%20blue%20accents%20and%20clean%20typography&width=400&height=250&seq=project-ecommerce&orientation=landscape"
+                        alt="E-commerce Platform"
+                        class="w-full h-48 object-cover object-top"
+                    >
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 font-rubik">E-commerce Platform</h3>
+                        <p class="text-gray-400 mb-4 font-mono text-sm">
+                            Full-stack e-commerce solution with real-time inventory management and payment processing.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">React</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Node.js</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Stripe</span>
+                        </div>
+                        <button class="text-blue-400 hover:text-blue-300 font-mono text-sm cursor-pointer">
+                            <i class="ri-external-link-line mr-1"></i>
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=Mobile%20fitness%20app%20interface%20design%2C%20workout%20tracking%20application%2C%20health%20and%20fitness%20dashboard%2C%20modern%20mobile%20UI%20with%20charts%20and%20progress%20tracking%2C%20clean%20app%20design%20with%20blue%20color%20scheme&width=400&height=250&seq=project-fitness-app&orientation=landscape"
+                        alt="Fitness Tracking App"
+                        class="w-full h-48 object-cover object-top"
+                    >
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 font-rubik">Fitness Tracking App</h3>
+                        <p class="text-gray-400 mb-4 font-mono text-sm">
+                            Cross-platform mobile app for fitness tracking with social features and AI-powered insights.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">React Native</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Firebase</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">ML</span>
+                        </div>
+                        <button class="text-blue-400 hover:text-blue-300 font-mono text-sm cursor-pointer">
+                            <i class="ri-external-link-line mr-1"></i>
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=Enterprise%20dashboard%20analytics%20interface%2C%20business%20intelligence%20platform%2C%20data%20visualization%20with%20charts%20and%20graphs%2C%20professional%20corporate%20software%20interface%20with%20clean%20design%20and%20blue%20accents&width=400&height=250&seq=project-analytics&orientation=landscape"
+                        alt="Analytics Dashboard"
+                        class="w-full h-48 object-cover object-top"
+                    >
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 font-rubik">Analytics Dashboard</h3>
+                        <p class="text-gray-400 mb-4 font-mono text-sm">
+                            Enterprise-grade analytics platform with real-time data visualization and reporting.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Vue.js</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Python</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">D3.js</span>
+                        </div>
+                        <button class="text-blue-400 hover:text-blue-300 font-mono text-sm cursor-pointer">
+                            <i class="ri-external-link-line mr-1"></i>
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=Blockchain%20cryptocurrency%20trading%20platform%20interface%2C%20crypto%20exchange%20dashboard%2C%20trading%20charts%20and%20market%20data%2C%20fintech%20application%20with%20modern%20design%20and%20professional%20trading%20interface&width=400&height=250&seq=project-blockchain&orientation=landscape"
+                        alt="Blockchain Platform"
+                        class="w-full h-48 object-cover object-top"
+                    >
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 font-rubik">Blockchain Platform</h3>
+                        <p class="text-gray-400 mb-4 font-mono text-sm">
+                            Decentralized trading platform with smart contracts and advanced security features.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Solidity</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Web3</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Next.js</span>
+                        </div>
+                        <button class="text-blue-400 hover:text-blue-300 font-mono text-sm cursor-pointer">
+                            <i class="ri-external-link-line mr-1"></i>
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=AI%20chatbot%20interface%20design%2C%20artificial%20intelligence%20customer%20service%20platform%2C%20conversational%20AI%20dashboard%2C%20modern%20chat%20interface%20with%20machine%20learning%20features%20and%20professional%20design&width=400&height=250&seq=project-ai-chatbot&orientation=landscape"
+                        alt="AI Chatbot"
+                        class="w-full h-48 object-cover object-top"
+                    >
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 font-rubik">AI Chatbot Platform</h3>
+                        <p class="text-gray-400 mb-4 font-mono text-sm">
+                            Intelligent customer service solution with natural language processing and machine learning.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Python</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">TensorFlow</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">React</span>
+                        </div>
+                        <button class="text-blue-400 hover:text-blue-300 font-mono text-sm cursor-pointer">
+                            <i class="ri-external-link-line mr-1"></i>
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=Cloud%20infrastructure%20management%20platform%2C%20DevOps%20dashboard%20interface%2C%20server%20monitoring%20and%20deployment%20tools%2C%20professional%20cloud%20management%20system%20with%20clean%20modern%20design&width=400&height=250&seq=project-cloud-platform&orientation=landscape"
+                        alt="Cloud Infrastructure"
+                        class="w-full h-48 object-cover object-top"
+                    >
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 font-rubik">Cloud Infrastructure</h3>
+                        <p class="text-gray-400 mb-4 font-mono text-sm">
+                            Scalable cloud management platform with automated deployment and monitoring capabilities.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">AWS</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Kubernetes</span>
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-mono">Docker</span>
+                        </div>
+                        <button class="text-blue-400 hover:text-blue-300 font-mono text-sm cursor-pointer">
+                            <i class="ri-external-link-line mr-1"></i>
+                            View Project
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-12 sm:py-16 lg:py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="inline-block bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full font-mono text-sm mb-4">
+                    ./team
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-rubik">
+                    Meet Our Team
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto font-mono">
+                    // The brilliant minds behind CodeCrafters
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 text-center hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=Professional%20software%20developer%20portrait%2C%20male%20lead%20developer%20with%20confident%20expression%2C%20clean%20modern%20professional%20headshot%2C%20tech%20industry%20professional%20photo%20with%20natural%20lighting&width=300&height=300&seq=team-member-1&orientation=squarish"
+                        alt="Alex Chen"
+                        class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-4 object-cover object-top border-2 border-blue-500"
+                    >
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2 font-rubik">Alex Chen</h3>
+                    <p class="text-blue-400 mb-3 font-mono text-sm">Lead Developer</p>
+                    <p class="text-gray-400 text-xs sm:text-sm font-mono mb-4">
+                        Full-stack architect with 8+ years of experience in scalable web applications.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-github-line text-lg"></i>
+                        </button>
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-linkedin-line text-lg"></i>
+                        </button>
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-twitter-line text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 text-center hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=Professional%20female%20UI%20UX%20designer%20portrait%2C%20creative%20designer%20with%20modern%20style%2C%20professional%20headshot%20for%20tech%20company%2C%20natural%20lighting%20and%20clean%20background%20with%20confidence&width=300&height=300&seq=team-member-2&orientation=squarish"
+                        alt="Sarah Johnson"
+                        class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-4 object-cover object-top border-2 border-blue-500"
+                    >
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2 font-rubik">Sarah Johnson</h3>
+                    <p class="text-blue-400 mb-3 font-mono text-sm">UI/UX Designer</p>
+                    <p class="text-gray-400 text-xs sm:text-sm font-mono mb-4">
+                        Creative designer focused on user-centered design and modern interfaces.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-dribbble-line text-lg"></i>
+                        </button>
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-linkedin-line text-lg"></i>
+                        </button>
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-instagram-line text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 text-center hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=Professional%20male%20DevOps%20engineer%20portrait%2C%20backend%20developer%20with%20technical%20expertise%2C%20professional%20tech%20industry%20headshot%20with%20confident%20expression%20and%20clean%20background&width=300&height=300&seq=team-member-3&orientation=squarish"
+                        alt="Mike Rodriguez"
+                        class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-4 object-cover object-top border-2 border-blue-500"
+                    >
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2 font-rubik">Mike Rodriguez</h3>
+                    <p class="text-blue-400 mb-3 font-mono text-sm">DevOps Engineer</p>
+                    <p class="text-gray-400 text-xs sm:text-sm font-mono mb-4">
+                        Infrastructure specialist with expertise in cloud architecture and deployment.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-github-line text-lg"></i>
+                        </button>
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-linkedin-line text-lg"></i>
+                        </button>
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-stack-overflow-line text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 text-center hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <img 
+                        src="https://readdy.ai/api/search-image?query=Professional%20female%20mobile%20app%20developer%20portrait%2C%20software%20engineer%20with%20modern%20tech%20background%2C%20professional%20headshot%20for%20development%20team%20with%20confident%20smile%20and%20clean%20styling&width=300&height=300&seq=team-member-4&orientation=squarish"
+                        alt="Emily Davis"
+                        class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-4 object-cover object-top border-2 border-blue-500"
+                    >
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2 font-rubik">Emily Davis</h3>
+                    <p class="text-blue-400 mb-3 font-mono text-sm">Mobile Developer</p>
+                    <p class="text-gray-400 text-xs sm:text-sm font-mono mb-4">
+                        Cross-platform mobile expert specializing in React Native and Flutter.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-github-line text-lg"></i>
+                        </button>
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-linkedin-line text-lg"></i>
+                        </button>
+                        <button class="text-gray-400 hover:text-blue-400 cursor-pointer">
+                            <i class="ri-twitter-line text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 sm:py-16 lg:py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="inline-block bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full font-mono text-sm mb-4">
+                    ./contact
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-rubik">
+                    Get In Touch
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto font-mono">
+                    // Ready to start your next project? Let's discuss your ideas
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-6 sm:space-y-8">
+                    <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 sm:p-8">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-6 font-rubik">Let's Build Something Amazing</h3>
+                        
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-mail-line text-blue-400 text-lg sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold font-mono mb-1">Email</h4>
+                                    <p class="text-gray-400 font-mono text-sm sm:text-base">hello@codecrafters.dev</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-phone-line text-blue-400 text-lg sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold font-mono mb-1">Phone</h4>
+                                    <p class="text-gray-400 font-mono text-sm sm:text-base">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-map-pin-line text-blue-400 text-lg sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold font-mono mb-1">Location</h4>
+                                    <p class="text-gray-400 font-mono text-sm sm:text-base">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="mt-8 pt-6 border-t border-gray-700">
+                            <p class="text-white font-semibold font-mono mb-4">Follow Us</p>
+                            <div class="flex space-x-4">
+                                <button class="w-10 h-10 bg-gray-700 hover:bg-blue-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+                                    <i class="ri-github-line text-white"></i>
+                                </button>
+                                <button class="w-10 h-10 bg-gray-700 hover:bg-blue-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+                                    <i class="ri-linkedin-line text-white"></i>
+                                </button>
+                                <button class="w-10 h-10 bg-gray-700 hover:bg-blue-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+                                    <i class="ri-twitter-line text-white"></i>
+                                </button>
+                                <button class="w-10 h-10 bg-gray-700 hover:bg-blue-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+                                    <i class="ri-dribbble-line text-white"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 sm:p-8">
+                    <form onsubmit="submitForm(event)" class="space-y-4 sm:space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                            <div>
+                                <label for="firstName" class="block text-white font-semibold font-mono mb-2 text-sm">First Name</label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    name="firstName" 
+                                    required
+                                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                                    placeholder="John"
+                                >
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-white font-semibold font-mono mb-2 text-sm">Last Name</label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    name="lastName" 
+                                    required
+                                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                                    placeholder="Doe"
+                                >
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-white font-semibold font-mono mb-2 text-sm">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                                placeholder="john@example.com"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="company" class="block text-white font-semibold font-mono mb-2 text-sm">Company</label>
+                            <input 
+                                type="text" 
+                                id="company" 
+                                name="company"
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                                placeholder="Your Company"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="service" class="block text-white font-semibold font-mono mb-2 text-sm">Service Needed</label>
+                            <select 
+                                id="service" 
+                                name="service" 
+                                required
+                                class="w-full px-4 py-3 pr-8 bg-gray-700 border border-gray-600 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
+                            >
+                                <option value="">Select a service</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="mobile-development">Mobile Development</option>
+                                <option value="backend-development">Backend Development</option>
+                                <option value="cloud-solutions">Cloud Solutions</option>
+                                <option value="devops">DevOps & CI/CD</option>
+                                <option value="consulting">Consulting</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="budget" class="block text-white font-semibold font-mono mb-2 text-sm">Project Budget</label>
+                            <select 
+                                id="budget" 
+                                name="budget" 
+                                required
+                                class="w-full px-4 py-3 pr-8 bg-gray-700 border border-gray-600 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
+                            >
+                                <option value="">Select budget range</option>
+                                <option value="5k-10k">$5k - $10k</option>
+                                <option value="10k-25k">$10k - $25k</option>
+                                <option value="25k-50k">$25k - $50k</option>
+                                <option value="50k-100k">$50k - $100k</option>
+                                <option value="100k+">$100k+</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-white font-semibold font-mono mb-2 text-sm">Project Details</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="4" 
+                                required
+                                maxlength="500"
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white font-mono text-sm focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                                placeholder="Tell us about your project requirements, timeline, and any specific technologies you prefer..."
+                            ></textarea>
+                            <p class="text-gray-400 text-xs font-mono mt-1">Maximum 500 characters</p>
+                        </div>
+
+                        <button 
+                            type="submit"
+                            class="w-full bg-blue-500 text-white px-6 py-3 sm:py-4 rounded-lg hover:bg-blue-400 transition-all duration-300 whitespace-nowrap cursor-pointer font-mono font-semibold text-base sm:text-lg"
+                        >
+                            <i class="ri-send-plane-line mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-8 sm:py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="text-xl sm:text-2xl font-bold text-blue-400 mb-4 font-rubik">
+                        &lt;CodeCrafters/&gt;
+                    </div>
+                    <p class="text-gray-400 mb-4 font-mono text-sm sm:text-base leading-relaxed">
+                        Elite software development team transforming ideas into elegant code solutions. 
+                        We specialize in modern web applications, mobile solutions, and cloud architecture.
+                    </p>
+                    <div class="flex space-x-4">
+                        <button class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-blue-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+                            <i class="ri-github-line text-gray-400 hover:text-white"></i>
+                        </button>
+                        <button class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-blue-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+                            <i class="ri-linkedin-line text-gray-400 hover:text-white"></i>
+                        </button>
+                        <button class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-blue-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+                            <i class="ri-twitter-line text-gray-400 hover:text-white"></i>
+                        </button>
+                        <button class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-blue-500 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+                            <i class="ri-dribbble-line text-gray-400 hover:text-white"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-white font-bold font-mono mb-4 text-sm sm:text-base">Services</h3>
+                    <ul class="space-y-2 text-gray-400 font-mono text-xs sm:text-sm">
+                        <li><a href="#services" onclick="smoothScroll('#services')" class="hover:text-blue-400 transition-colors cursor-pointer">Web Development</a></li>
+                        <li><a href="#services" onclick="smoothScroll('#services')" class="hover:text-blue-400 transition-colors cursor-pointer">Mobile Apps</a></li>
+                        <li><a href="#services" onclick="smoothScroll('#services')" class="hover:text-blue-400 transition-colors cursor-pointer">Backend Systems</a></li>
+                        <li><a href="#services" onclick="smoothScroll('#services')" class="hover:text-blue-400 transition-colors cursor-pointer">Cloud Solutions</a></li>
+                        <li><a href="#services" onclick="smoothScroll('#services')" class="hover:text-blue-400 transition-colors cursor-pointer">DevOps</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-bold font-mono mb-4 text-sm sm:text-base">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400 font-mono text-xs sm:text-sm">
+                        <li><a href="#about" onclick="smoothScroll('#about')" class="hover:text-blue-400 transition-colors cursor-pointer">About Us</a></li>
+                        <li><a href="#portfolio" onclick="smoothScroll('#portfolio')" class="hover:text-blue-400 transition-colors cursor-pointer">Portfolio</a></li>
+                        <li><a href="#team" onclick="smoothScroll('#team')" class="hover:text-blue-400 transition-colors cursor-pointer">Our Team</a></li>
+                        <li><a href="#contact" onclick="smoothScroll('#contact')" class="hover:text-blue-400 transition-colors cursor-pointer">Contact</a></li>
+                        <li><a href="https://readdy.ai/?origin=logo" target="_blank" class="hover:text-blue-400 transition-colors cursor-pointer">Website Builder</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-6 sm:pt-8">
+                <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                    <p class="text-gray-400 font-mono text-xs sm:text-sm text-center sm:text-left">
+                        © 2024 CodeCrafters. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-6 text-gray-400 font-mono text-xs sm:text-sm">
+                        <a href="#" class="hover:text-blue-400 transition-colors cursor-pointer">Privacy Policy</a>
+                        <a href="#" class="hover:text-blue-400 transition-colors cursor-pointer">Terms of Service</a>
+                        <a href="#" class="hover:text-blue-400 transition-colors cursor-pointer">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Readdy Agent Widget -->
+    <script 
+        src="https://readdy.ai/api/public/assistant/widget?projectId=91bf2c0b-f00d-40e7-8590-bb7609190ff7"
+        mode="hybrid"
+        voice-show-transcript="true"
+        theme="dark"
+        size="compact"
+        accent-color="#3B82F6"
+        button-base-color="#000000"
+        button-accent-color="#FFFFFF"
+        defer
+    ></script>
+</body>
+</html>
